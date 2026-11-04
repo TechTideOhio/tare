@@ -1,0 +1,71 @@
+[suite]
+name = "softfactory-cost-latency-evals"
+version = "0.1.0"
+description = "First-class cost, token, and latency metrology with 3D Pareto release gating"
+
+[budgets]
+max_cpst_usd = 0.0800
+max_cpc_usd = 0.0400
+max_p50_ms = 1200.0
+max_p95_ms = 2500.0
+min_cache_hit_rate = 0.25
+max_failure_tax_multiplier = 2.0
+
+[gate]
+min_quality_floor = 0.85
+max_quality_drop = 0.02
+tost_equivalence_margin = 0.02
+mcnemar_alpha = 0.05
+efficiency_win_min_cpst_cut_pct = 20.0
+max_cpst_increase_pct = 10.0
+max_p95_increase_pct = 15.0
+
+[pricing.default]
+input_per_million = 3.00
+cache_read_per_million = 0.30
+cache_write_per_million = 3.75
+output_per_million = 15.00
+reasoning_per_million = 15.00
+
+[pricing.claude-3-7-sonnet]
+input_per_million = 3.00
+cache_read_per_million = 0.30
+cache_write_per_million = 3.75
+output_per_million = 15.00
+reasoning_per_million = 15.00
+
+[pricing.claude-3-5-haiku]
+input_per_million = 0.80
+cache_read_per_million = 0.08
+cache_write_per_million = 1.00
+output_per_million = 4.00
+reasoning_per_million = 4.00
+
+[category.retrieval]
+baseline_pass_rate = 0.96
+floor_pass_rate = 0.88
+max_drop = 0.03
+target_cpst_usd = 0.0450
+target_p95_ms = 1800.0
+description = "Throughline Studio vector retrieval, chunk grounding, and RLS tenant isolation"
+
+[category.tool_use]
+baseline_pass_rate = 0.94
+floor_pass_rate = 0.85
+max_drop = 0.04
+target_cpst_usd = 0.0400
+target_p95_ms = 1500.0
+description = "Agent MCP tool call syntax, argument schemas, and execution efficiency"
+
+[category.prompt_fidelity]
+baseline_pass_rate = 0.92
+floor_pass_rate = 0.80
+max_drop = 0.05
+target_cpst_usd = 0.0350
+target_p95_ms = 1200.0
+description = "Persona boundary adherence, concise structured generation, and cache prefix alignment"
+
+[economics]
+daily_successful_tasks = 50000
+developer_hourly_rate_usd = 150.0
+latency_seconds_to_dev_cost_ratio = 0.04

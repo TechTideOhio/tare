@@ -1,0 +1,32 @@
+{
+  "lock_version": "sha256-framed-v1",
+  "suite_name": "softfactory-cost-latency-evals",
+  "suite_version": "0.1.0",
+  "spec_sha256": "86b1f315f74a89c67107eda90352bb6c3a70fbadce0d2ac41e299c788ac86d75",
+  "max_cpst_usd": 0.08,
+  "max_p95_ms": 2500.0,
+  "categories": {
+    "prompt_fidelity": {
+      "baseline_pass_rate": 0.92,
+      "floor_pass_rate": 0.8,
+      "max_drop": 0.05,
+      "target_cpst_usd": 0.035,
+      "target_p95_ms": 1200.0
+    },
+    "retrieval": {
+      "baseline_pass_rate": 0.96,
+      "floor_pass_rate": 0.88,
+      "max_drop": 0.03,
+      "target_cpst_usd": 0.045,
+      "target_p95_ms": 1800.0
+    },
+    "tool_use": {
+      "baseline_pass_rate": 0.94,
+      "floor_pass_rate": 0.85,
+      "max_drop": 0.04,
+      "target_cpst_usd": 0.04,
+      "target_p95_ms": 1500.0
+    }
+  },
+  "overall_lock_digest": "f9852ec5cf412a6a3e06f680880dc5ee2ed00792cd8656d6abcf6db22a788be3"
+}
