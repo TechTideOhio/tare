@@ -10,7 +10,7 @@
 [![Rust: 2021 / 1.82+](https://img.shields.io/badge/Rust-2021%20%2F%201.82%2B-orange.svg)](Cargo.toml)
 [![Zero-FFI](https://img.shields.io/badge/Dependencies-Zero--FFI%20Pure%20Rust-purple.svg)](Cargo.toml)
 
-[Quickstart](#60-second-quickstart) | [Why tare?](#why-tare) | [Metrology Reference Table](#metrology-reference-table) | [Core Engines](#core-engines) | [Author Reviews](#architectural-foundations--author-reviews) | [Feature Matrix](#feature-comparison-matrix) | [The Complete TideOS Eval Kit](#the-complete-tideos-eval-kit) | [Contributing](CONTRIBUTING.md)
+[Quickstart](#60-second-quickstart) | [Why tare?](#why-tare) | [Metrology Reference Table](#metrology-reference-table) | [Core Engines](#core-engines) | [Architectural Foundations](#architectural-foundations) | [Feature Matrix](#feature-comparison-matrix) | [The Complete TideOS Eval Kit](#the-complete-tideos-eval-kit) | [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -129,26 +129,26 @@ Chains task entries with SHA-256 hashes ($H_i = \text{SHA256}(H_{i-1} \parallel 
 
 ---
 
-## Architectural Foundations & Author Reviews
+## Architectural Foundations
 
-`tare` satisfies the design standards of three leading software and evaluation philosophies:
+`tare` is engineered around three core design pillars:
 
-### 1. Extreme Craft & Desktop Ergonomics ([Peter Steinberger / @steipete](https://github.com/steipete) Lens)
+### 1. Extreme Craft & Desktop Ergonomics
 - **Sub-1 MB Standalone Binary**: Compiles to a **`0.86 MB`** static binary with zero external FFI, zero dynamic linker requirements, and sub-10ms evaluation execution.
-- **Terminal Audio Alert Bell**: Emits the signature ASCII `\x07` alert bell on any regression, budget breach, or vanity cost trap, providing instant audible feedback.
+- **Terminal Audio Alert Bell**: Emits the signature ASCII `\x07` alert bell on any regression, budget breach, or vanity cost trap, providing instant audible feedback during local development.
 - **Developer-First Scorecard**: Renders beautiful ANSI scorecards locally, universal `HarnessEnvelope<T>` for automation, and native GitHub Actions summaries in CI.
 - **Strict Typography Discipline**: Zero em-dashes and zero en-dashes across all code, documentation, and error strings.
 
 > *"If a performance tool takes 5 seconds to run Python or requires Docker containers, developers will not run it before merge. `tare` provides instantaneous, sub-10ms Pareto gating in a single 0.86 MB binary that fits right into local harness workflows."*
 
-### 2. Production vs Demo Observability ([Harrison Chase / @hwchase17](https://github.com/hwchase17) Lens)
+### 2. Production vs Demo Observability
 - **Closing the Evaluation Loop**: Bridges prompt experimentation with production economics. Moving from single-turn evaluations to full multi-request task economics.
 - **Preventing Cost Surprises**: Catching failure tax spikes and reasoning token loops before they hit production API bills.
 - **Open Standards**: Native generation of W3C OpenTelemetry spans (`eval.cpst_usd`, `eval.tokens_per_request`, `eval.latency_p50_ms`, `eval.latency_p95_ms`) for enterprise observability platforms.
 
 > *"In production agent applications, token spend and latency are as critical as accuracy. A model change that looks cheaper per token can destroy production unit economics if it causes retry loops. `tare` brings mathematical discipline to Cost Per Successful Task."*
 
-### 3. Mathematical Rigor & Cryptographic Ledgers ([Daniel Orneryd / @orneryd](https://github.com/orneryd) Lens)
+### 3. Mathematical Rigor & Cryptographic Ledgers
 - **Zero Hand-Waving Statistics**: Exact binomial McNemar test with Lanczos log-gamma, TOST equivalence testing, and deterministic SplitMix64 bootstrap confidence intervals.
 - **Append-Only Merkle Ledgers**: Cryptographic hash chaining (`tare-run-v1`) guarantees immutable evaluation records from genesis to head.
 - **sha256-framed-v1 Lockfiles**: Sealing specifications, baseline costs, and category thresholds into cryptographic lockfiles prevents silent evaluation drift.
@@ -208,7 +208,7 @@ Chains task entries with SHA-256 hashes ($H_i = \text{SHA256}(H_{i-1} \parallel 
 
 ## About
 
-`tare` is developed by Alex Cinovoj and the engineering team at [TechTide AI](https://techtideai.io) as part of the TideOS Eval Kit.
+`tare` is authored and developed by Alex Cinovoj and the engineering team at [TechTide AI](https://techtideai.io) as part of the TideOS Eval Kit.
 
 For enterprise evaluations, custom agent harnesses, and autonomous development infrastructure, visit [techtideai.io](https://techtideai.io).
 
