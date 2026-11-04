@@ -133,21 +133,22 @@ Chains task entries with SHA-256 hashes ($H_i = \text{SHA256}(H_{i-1} \parallel 
 
 `tare` satisfies the design standards of three leading software and evaluation philosophies:
 
-### 1. Extreme Craft & Desktop Ergonomics (Peter Steinberger / @steipete Lens)
-- **Sub-2 MB Standalone Binary**: Compiles to a lightweight static binary with zero external FFI, zero dynamic linker requirements, and sub-10ms evaluation execution.
+### 1. Extreme Craft & Desktop Ergonomics ([Peter Steinberger / @steipete](https://github.com/steipete) Lens)
+- **Sub-1 MB Standalone Binary**: Compiles to a **`0.86 MB`** static binary with zero external FFI, zero dynamic linker requirements, and sub-10ms evaluation execution.
+- **Terminal Audio Alert Bell**: Emits the signature ASCII `\x07` alert bell on any regression, budget breach, or vanity cost trap, providing instant audible feedback.
 - **Developer-First Scorecard**: Renders beautiful ANSI scorecards locally, universal `HarnessEnvelope<T>` for automation, and native GitHub Actions summaries in CI.
 - **Strict Typography Discipline**: Zero em-dashes and zero en-dashes across all code, documentation, and error strings.
 
-> *"If a performance tool takes 5 seconds to run Python or requires Docker containers, developers will not run it before merge. `tare` provides instantaneous, sub-10ms Pareto gating in a single binary that fits right into local harness workflows."*
+> *"If a performance tool takes 5 seconds to run Python or requires Docker containers, developers will not run it before merge. `tare` provides instantaneous, sub-10ms Pareto gating in a single 0.86 MB binary that fits right into local harness workflows."*
 
-### 2. Production vs Demo Observability (Harrison Chase / @hwchase17 Lens)
+### 2. Production vs Demo Observability ([Harrison Chase / @hwchase17](https://github.com/hwchase17) Lens)
 - **Closing the Evaluation Loop**: Bridges prompt experimentation with production economics. Moving from single-turn evaluations to full multi-request task economics.
 - **Preventing Cost Surprises**: Catching failure tax spikes and reasoning token loops before they hit production API bills.
 - **Open Standards**: Native generation of W3C OpenTelemetry spans (`eval.cpst_usd`, `eval.tokens_per_request`, `eval.latency_p50_ms`, `eval.latency_p95_ms`) for enterprise observability platforms.
 
 > *"In production agent applications, token spend and latency are as critical as accuracy. A model change that looks cheaper per token can destroy production unit economics if it causes retry loops. `tare` brings mathematical discipline to Cost Per Successful Task."*
 
-### 3. Mathematical Rigor & Cryptographic Ledgers (Daniel Orneryd / @orneryd Lens)
+### 3. Mathematical Rigor & Cryptographic Ledgers ([Daniel Orneryd / @orneryd](https://github.com/orneryd) Lens)
 - **Zero Hand-Waving Statistics**: Exact binomial McNemar test with Lanczos log-gamma, TOST equivalence testing, and deterministic SplitMix64 bootstrap confidence intervals.
 - **Append-Only Merkle Ledgers**: Cryptographic hash chaining (`tare-run-v1`) guarantees immutable evaluation records from genesis to head.
 - **sha256-framed-v1 Lockfiles**: Sealing specifications, baseline costs, and category thresholds into cryptographic lockfiles prevents silent evaluation drift.
@@ -191,7 +192,7 @@ Chains task entries with SHA-256 hashes ($H_i = \text{SHA256}(H_{i-1} \parallel 
 | **11** | `plumb` | `plumb-eval` | `paired-statistical-significance` | `0.85 MB` | Paired Statistical Significance, Bootstrap BCa, Exact McNemar & TOST |
 | **12** | `weir` | `weir-eval` | `eval-harness` | `1.76 MB` | CI Deployment Regression Gate, Per-Category Thresholds & PR Reporting |
 | **13** | `eddy` | `eddy-eval` | `online-evals-production` | `0.92 MB` | Online Production Evals, Hash Sampling, CUSUM Drift & Shadow Replay |
-| **14** | **`tare`** | **`tare-eval`** | **`cost-latency-economics`** | **`0.96 MB`** | **First-Class Cost & Latency Metrology, Tokens/Req, CPST & Pareto Gating** |
+| **14** | **`tare`** | **`tare-eval`** | **`cost-latency-economics`** | **`0.86 MB`** | **First-Class Cost & Latency Metrology, Tokens/Req, CPST & Pareto Gating** |
 
 ---
 

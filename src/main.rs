@@ -26,6 +26,13 @@ use tare::spec::TareSpec;
     version
 )]
 pub struct Cli {
+    #[arg(
+        long,
+        default_value = "true",
+        help = "Ring terminal audio alert bell on failure"
+    )]
+    pub bell: bool,
+
     #[command(subcommand)]
     pub command: Commands,
 }
@@ -183,10 +190,17 @@ pub struct AuditArgs {
     pub json: bool,
 }
 
+fn ring_bell_if(enabled: bool) {
+    if enabled {
+        eprint!("\x07");
+    }
+}
+
 fn main() -> ExitCode {
     let cli = Cli::parse();
+    let bell = cli.bell;
 
-    match cli.command {
+    let code = match cli.command {
         Commands::Table => handle_table(),
         Commands::Init(args) => handle_init(args),
         Commands::Profile(args) => handle_profile(args),
@@ -196,7 +210,13 @@ fn main() -> ExitCode {
         Commands::Lock(args) => handle_lock(args),
         Commands::Verify(args) => handle_verify(args),
         Commands::Audit(args) => handle_audit(args),
+    };
+
+    if code != ExitCode::SUCCESS {
+        ring_bell_if(bell);
     }
+
+    code
 }
 
 fn handle_table() -> ExitCode {
